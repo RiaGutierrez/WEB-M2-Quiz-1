@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Quote Generator</title>
+
+</head>
+
+<style>
+
+body {background-color: skyblue }
+
+.pic {
+
+width: 10rem;
+
+height: 10rem
+
+}
+
+.card {
+
+background-color: white;
+
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+transition: 0.3s;
+
+width: 20rem;
+
+height: 10rem;
+
+margin-bottom: 1rem;
+
+}
+
+.container {
+
+padding: 4rem ;
+
+}
+
+</style>
+
+<body >
+
+<div class="card" data-value="Lionel Messi"><div class="container" onclick="getQuote()" style="color: red"> Lionel Messi </div></div>
+
+<br><br>
+
+<div id="Lionel Messi"></div>
+
+<br>
+
+<div class="card" data-value="Christiano Ronaldo"><div class="container" onclick="getQuote()" style="color: green"> Christiano Ronaldo </div></div>
+
+<br><br>
+
+<div id="Christiano Ronaldo"></div>
+
+<br>
+
+<div class="card" data-value="Mahendra Sigh Dhoni"><div class="container" onclick="getQuote()" style="color: purple"> Mahendra Singh Dhoni </div></div>
+
+<br><br><div id="Mahendra Sigh Dhoni"></div>
+
+<br>
+
+<div class="card" data-value="Saurav Ganguly"><div class="container" onclick="getQuote()" style="color: orange"> Saurav Ganguly </div></div>
+
+<br><br><div id="Saurav Ganguly"></div>
+
+<br>
+
+<div class="card" data-value="Tiger Woods"><div class="container" onclick="getQuote()" style="color: brown"> Tiger Woods </div></div>
+
+<br><br><div id="Tiger Woods"></div>
+
+</body>
+
+<script>
+
+function getQuote(){
+
+const personName = this.event.target.parentNode.getAttribute('data-value');
+
+const newButton = document.createElement("button");
+
+newButton.value = personName
+
+newButton.innerHTML = "Get Quote";
+
+newButton.setAttribute('onclick','display()');
+
+const clickedButton = this.event.target.parentNode;
+
+clickedButton.parentNode.insertBefore(newButton,clickedButton.nextSibling);
+
+}
+
+function display()
+
+{
+
+const names = {
+
+"Lionel Messi":["Lionel Messi's QuoteLM1"," Born : June 24, 1987 (age 34), Rosario, Argentina QuoteLM2","Salary : USD 41 million (2022) QuoteLM3","Spouse : Antonella Roccuzzo (m. 2017) QuoteLM4","Current teams : Paris Saint-Germain (#30 / Striker), Argentina national football team (#10 / Striker) QuoteLM5"],
+
+"Christiano Ronaldo" :["Cristiano Ronaldo dos Santos QuoteCR1","Geboren : 5 februari 1985 (36 jaar), Dr. Nélio Mendonça Hospital, Funchal, Portugal QuoteCR2","Salary : GBP 26.52 million QuoteCR3","Partner: Georgina Rodriguez (2017–) QuoteCR4","Current teams : Manchester United FC (#7 / Striker), Portugal national football team (#7 / Striker) QuoteCR5"],
+
+"Mahendra Sigh Dhoni":["captain of Chennai Super Kings (CSK) QuoteMSD1","Born : July 7, 1981 (age 40), Ranchi, India QuoteMSD2","Salary : USD 1.8 million (2016) QuoteMSD3","Spouse : Sakshi Dhoni (m. 2010) QuoteMSD4","Prijzen : Padma Bhushan , Padma Shri , LAKE QuoteMSD5"],
+
+"Saurav Ganguly":["Sourav Chandidas Ganguly AKA DADA QuoteSG1","Born : July 8, 1972 (age 49), Behala, Calcutta, India QuoteSG2","Spouse : Dona Ganguly (m. 1997) QuoteSG3","Children : Sana Ganguly QuoteSG4","Films: Sachin: A Billion Dreams QuoteSG5"],
+
+"Tiger Woods":["Eldrick Tont Known as Tiger Woods QuoteTW1","Born : December 30, 1975 (age 46), Cypress, California, United States QuoteTW2","Total prize money : US$ 110,061,012 QuoteTW3","Spouse : Elin Nordegren (m. 2004–2010) QuoteTW4","Children : Charlie Axel Woods , Sam Alexis Woods QuoteTW5"]
+
+}
+
+const personName = this.event.target.value;
+
+console.log(personName);
+
+const randomQuoteIndex = Math.floor(Math.random()*5);
+
+document.getElementById(personName).innerHTML = names[personName][randomQuoteIndex];
+
+}
+
+</script>
+
+</html>
